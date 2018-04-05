@@ -4,6 +4,7 @@ import java.util.Scanner;
 public class two_sum {
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
+        in.useDelimiter("\n"); //使用空格或逗号或点号作为分隔符
         while(in.hasNext()){
             System.out.println(in.next());
         }
