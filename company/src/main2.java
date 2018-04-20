@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class main1 {
+public class main2 {
 
     static boolean find1 = false;
 
