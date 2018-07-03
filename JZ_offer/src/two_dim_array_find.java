@@ -16,7 +16,6 @@ public class two_dim_array_find {
         System.out.println(restult);
     }
 
-
     public boolean Find(int target, int [][] array) {
         int len = array.length;
         int i=len-1,j=0;
