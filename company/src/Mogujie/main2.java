@@ -1,4 +1,4 @@
-package Mogujie;
+package company.src.Mogujie;
 
 import java.util.Arrays;
 import java.util.Scanner;

@@ -1,4 +1,4 @@
-package Credit_card_51;
+package company.src.Credit_card_51;
 
 import java.util.Scanner;
 

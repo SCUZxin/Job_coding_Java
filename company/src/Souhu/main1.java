@@ -1,4 +1,4 @@
-package Souhu;
+package company.src.Souhu;
 
 import java.util.*;
 

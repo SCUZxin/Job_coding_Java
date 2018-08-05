@@ -1,4 +1,4 @@
-package IQiYi;
+package company.src.IQiYi;
 
 import java.util.Scanner;
 

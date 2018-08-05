@@ -1,4 +1,4 @@
-package JD;
+package company.src.JD;
 import java.util.*;
 
 public class main1 {
