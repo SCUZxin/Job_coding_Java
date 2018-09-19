@@ -1,4 +1,4 @@
-package company.src.ByteDance;
+package company.src.ByteDance2;
 
 import java.util.Scanner;
 

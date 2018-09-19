@@ -3,39 +3,85 @@ import java.util.*;
 
 public class main1 {
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        while(in.hasNext()){
-            int t =in.nextInt();
-            long[] N = new long[t];
-            long[] X = new long[t];//奇数
-            long[] Y = new long[t];//偶数
-            for(int i=0;i<t;i++) {
-                N[i] = in.nextInt();
+        Scanner input = new Scanner(System.in);
+        int T = input.nextInt();
+        for (int i = 0; i < T; i++) {
+            int N = input.nextInt();
+            int M = input.nextInt();
+            int[][] node = new int[M][2];
+            for (int j = 0; j < M; j++) {
+                node[j][0] = input.nextInt();
+                node[j][1] = input.nextInt();
             }
-            decompos(N, X, Y, t);
-        }
-    }
-
-    public static void decompos(long[] N, long[] X, long[] Y, int t){
-        for (int j = 0; j < N.length; j++) {
-            //值是偶数才能分解(奇数，无法分解，输出“No”)
-            if (N[j] % 2 == 0) {
-                for (int k = 2; k <= N[j]; k += 2) {
-                    if (N[j] % k == 0) {
-                        X[j] = N[j] / k;
-                        Y[j] = k;
-                        break;
-                    }
+//            for (int j = 0; j < M; j++) {
+//                System.out.println(Arrays.toString(node[j]));
+//            }
+            boolean findNodeLinkedAll = false;
+            boolean findNodeNotLinkedAll = false;
+            for (int j = 0; j < N; j++) {
+                if(findNodeLinkedAll(j, N, M, node)){
+                    findNodeLinkedAll = true;
+                    break;
                 }
             }
-        }
-        for (int j = 0; j < t; j++) {
-            if (X[j] == 0) {    //没有找到
+            for (int j = 0; j < N; j++) {
+                if(findNodeNotLinkedAll(j, N, M, node)){
+                    findNodeNotLinkedAll = true;
+                    break;
+                }
+            }
+            if(findNodeLinkedAll && findNodeNotLinkedAll){
+                System.out.println("Yes");
+            }
+            else{
                 System.out.println("No");
-            } else {
-                System.out.println(X[j] + " " + Y[j]);
             }
         }
+
+    }
+
+//    private static boolean findNodeLinkedAll(int targetNode, int n, int m, int[][] node) {
+//        Set<Integer> set = new TreeSet<>();
+//        set.add(targetNode);
+//        for (int i = 0; i < m; i++) {
+//            if(node[i][0]==targetNode){
+//                set.add(node[i][1]);
+//            }
+//            if(node[i][1]==targetNode){
+//                set.add(node[i][0]);
+//            }
+//        }
+//        if(set.size() != n){
+//            return false;
+//        }
+//        int i=1;
+//        for (Integer val : set) {
+//            if(val!=i++){
+//                return false;
+//            }
+//        }
+//        return true;
+//    }
+
+
+    private static boolean findNodeLinkedAll(int targetNode, int n, int m, int[][] node) {
+        int count = 0;
+        for (int i = 0; i < m; i++) {
+            if(node[i][0]==targetNode || node[i][1]==targetNode){
+                count++;
+            }
+        }
+        return count == n-1;
+    }
+
+    private static boolean findNodeNotLinkedAll(int targetNode, int n, int m, int[][] node) {
+        int count = 0;
+        for (int i = 0; i < m; i++) {
+            if(node[i][0]==targetNode || node[i][1]==targetNode){
+                count++;
+            }
+        }
+        return count != n-1;
     }
 
 }

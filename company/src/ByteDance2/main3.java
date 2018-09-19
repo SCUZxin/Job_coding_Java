@@ -1,6 +1,5 @@
-package company.src.ByteDance;
+package company.src.ByteDance2;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 /*
